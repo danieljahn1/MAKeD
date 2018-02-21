@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+}
+.content-container {
+    width: 80%;
+    margin: 30px auto;
+}
+.search-bar {
+    text-align: center;
+}
+.text-box {
+    margin: 30px 30px 20px 0;
+}
+#list-of-beers {
+    margin: 40px auto;
+}
+.beer-card {
+    height: 200px;
+    border: 1px solid black;
+}
+.name-content {
+    font-size: 150%;
+}
+#beer-image {
+    width: 70px;
+}
+.style-header {
+    font-weight: bold;
+}
+.abv-header {
+    font-weight: bold;
+}

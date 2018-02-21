@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="./styles.css">
+
+<title>Document</title>
+</head>
+
+<body>
+  
+    <!-- Header -->
+
+<div id="main-header">
+    <div class="inner-container">
+        <div id="header-title-container">
+            <h1>Beer App</h1>
+        </div>
+    </div>
+</div>
+    <!-- End of Header -->
+
+    <!-- Page Content -->
+<div id="page-container" class="container-fluid">
+     <div class="inner-container">
+        <div class="content-container">
+            <div class="search-bar">
+                <input type="search" class="search-text-box text-box" style="width: 500px" placeholder="Search Beers, Beer Styles, and Breweries ..."/>
+                
+                <input type="number" class="minabv-text-box text-box" style="width: 100px" min="0" max="20" step="0.5" placeholder="Min ABV" />
+                
+                <input type="number" class="maxabv-text-box text-box" style="width: 100px" min="0" max="20" step="0.5" placeholder="Max ABV"/>
+            </div>    
+            
+            <div id="list-of-beers" class="row"></div>
+            
+            <button id='previous-button' class='btn btn-warning' style='margin-right: 20px'> Previous Page </button>
+            
+            <button id='next-button' class='btn btn-info'> More Beer </button>
+        </div>
+    </div>
+</div>     
+
+
+
+<script src ="./main.js"></script>
+
+</body>
+</html>
