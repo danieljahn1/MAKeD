@@ -9,22 +9,21 @@ var searchText = '';
 var globalTimeout;
 
 
-$.ajax({
+var fullLoad = function () {
+    $.ajax({
     url: beerApi,
     method: "GET"
-})
-.done(function(response){
+    })
+    .done(function(response){
  
-// console.log(response)
+    beerArr = response;
 
-// for (i=0 ; i < response.length ; i++) {
-beerArr = response;
-// // console.log (beerArr)
-// }
+    appendItemsToPage(beerArr)  
 
-appendItemsToPage(beerArr)
+    });
+}
 
-});
+fullLoad();
 
 var currentPage = 0; 
 
@@ -474,7 +473,6 @@ function appendItemsToPage(beerArr) {
             beerArr[i].styleId = "Winter Warmer";
         }
 
-
         var beerCard = "<div id=beer-card" + i + " class='col-md-3 beer-card'></div>";
         var beerContent = "<div class=beer-content" + i + "></div>";
             
@@ -539,12 +537,13 @@ var keyUpEvent = function () {
         globalTimeout = setTimeout(search, 750);
         }
     // console.log ($(".search-text-box").get(0).value)
-    // else if ($(".search-text-box").get(0).value == "") {
-    //     // appendItemsToPage(beerArr);
+    else if ($(".search-text-box").get(0).value == "") {
+        fullLoad();
+        // appendItemsToPage(beerArr);
     //     // console.log(beerArr);
     //     if (globalTimeout != null) clearTimeout(globalTimeout);
     //     globalTimeout = setTimeout(search, 750);
-        // }
+        }
 }
 
 var search = function() {
