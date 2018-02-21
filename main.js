@@ -1,4 +1,5 @@
 $('document').ready(function() {  
+
 var beerApi = "http://redwoodbeerapi.azurewebsites.net/api/beers";
 
 var beerArr;
@@ -531,6 +532,9 @@ function appendItemsToPage(beerArr) {
 
     }        
 };
+
+
+
 
 
 var keyUpEvent = function () {
