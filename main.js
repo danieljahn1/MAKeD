@@ -495,34 +495,8 @@ var fullLoad = function () {
 
 fullLoad();
 
-// $('.popover-dismiss').popover({
-//     trigger: 'focus'
-//   })
-
-// $("#next-button1").click(function(event) {
-//     currentPage ++ ;
-//     appendItemsToPage(beerArr);
-// });
-
-
-// $("#previous-button1").click(function(event) {
-//     currentPage -- ;
-//     appendItemsToPage(beerArr);
-// });
-
-// $("#next-button2").click(function(event) {
-//     currentPage ++ ;
-//     appendItemsToPage(beerArr);
-// });
-
-
-// $("#previous-button2").click(function(event) {
-//     currentPage -- ;
-//     appendItemsToPage(beerArr);
-// });
-
 var globalTimeout;
-var name = "";
+// var name = "";
 
 var newBeerName = "";
 var newBeerAbv = "";
@@ -558,10 +532,7 @@ var keyUpEvent = function () {
     if ($(".search-text-box").get(0).value.length > 2) {
         if (globalTimeout != null) clearTimeout(globalTimeout);
         globalTimeout = setTimeout(search, 750);
-        }
-    // console.log ($(".search-text-box").get(0).value)
-    else if ($(".search-text-box").get(0).value == "") {
-        // fullLoad();
+    } else if ($(".search-text-box").get(0).value == "") {
         if (globalTimeout != null) clearTimeout(globalTimeout); {
         globalTimeout = setTimeout(search, 750);
         }
@@ -1093,6 +1064,7 @@ function loadNewBeer (event) {
         newBeerLoad ()
     })
 }
+
 $("#search-button").mouseup(search);
 
 $(".search-text-box").keyup(keyUpEvent);
@@ -1111,24 +1083,6 @@ $('.submit-new-beer').mouseup(function(event) {
 });
 
 
-
-
-// // infinite scroll
-
-// // http://dumpk.com/2013/06/02/how-to-create-infinite-scroll-with-ajax-on-jquery/
-
-// function element_in_scroll(elem)
-// {
-//     var docViewTop = $(window).scrollTop();
-//     var docViewBottom = docViewTop + $(window).height();
-
-//     var elemTop = $(elem).offset().top;
-//     var elemBottom = elemTop + $(elem).height();
-
-loadNewBeer();
-
-
-
 // var deleteNewBeer = function () {
 //     $.ajax({
 //         url:  beerApi,
@@ -1141,16 +1095,6 @@ loadNewBeer();
 //             newBeerLoad () 
 //     })
 // }
-
-//     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-// }
-
-
-// $(document).scroll(function(e){
-// 	//...
-// });
-
-
 
 
 })
