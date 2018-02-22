@@ -1,61 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- Tether -->
+    <!-- <link rel="stylesheet" href="http://tether/dist/js/tether.min.js"> -->
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles.css">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="./styles.css">
-
-<title>Document</title>
+    <title>MAKeD Beer App</title>
 </head>
 
 <body>
-  
-    <!-- Header -->
+    <div id="page-container" class="container-fluid">
+        <div class="inner-container">
+            <!-- Header -->
+            <div id="main-header">
+                <div id="header-title-container">
+                    <h1>Beer App</h1>
+                </div>
+            </div>
+            <!-- Search -->
+            <div class="search-bar">
+                <div class="form-inline">
+                    <label id="abv-range-label">ABV Range: </label>
+                    <label for="minAbv" class="min-max-label">Min</label>
+                    <select class="form-control btn btn-secondary btn-sm abv-option" id="minAbv">
+                        <option>select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                    </select>
+                    <label for="maxAbv" class="min-max-label">Max</label>
+                    <select class="form-control btn btn-secondary btn-sm abv-option" id="maxAbv">
+                        <option>select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                    </select>
+                    <input type="search" class="form-control search-text-box" placeholder="Search Beers, Beer Styles, and Breweries ..."/>
+                    <button type="submit" class="btn btn-primary" id="search-button"/> Cheers! </button>
+                    <a href="#openModal" class="btn-link btn-lg pull-right">Add a Beer</a>
+                    <div id="openModal" class="modalDialog">
+                        <div>
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Add a Beer</h2>
+                            <form>
+                                <div class="form-group">
+                                    <label for="newBeerName">Beer name</label>
+                                    <input type="text" class="form-control" id="newBeerName" aria-describedby="beerHelp" placeholder="Beer name">
+                                    <small id="beerHelp" class="form-text text-muted">Please add only good beers.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newBeerAbv">ABV</label>
+                                    <input type="text" class="form-control" id="newBeerAbv" aria-describedby="abvHelp" placeholder="ABV">
+                                    <small id="abvHelp" class="form-text text-muted">The more the merrier.</small>
+                                </div>
+                            </form>
+                            <button type="beer" class="btn btn-warning btn-block submit-new-beer">Add Beer</button>
+                        </div>
+                    </div>
+                    <!-- <button type ="button" class="btn-link btn-lg pull-right" id="add-beer-button">Add a Beer</button> -->
+                </div>
 
-<div id="main-header">
-    <div class="inner-container">
-        <div id="header-title-container">
-            <h1>Beer App</h1>
+            </div>
+            <!-- <div class="btn-group page-button-block" role="group" aria-label="">
+                <button type="button" id='previous-button1' class='btn btn-default'> Previous Page </button>
+                <button type="button" id='next-button1' class='btn btn-primary'> More Beer </button>
+            </div> -->
+            <!-- Page Content -->
+
+            <div class="content-container">
+                <div id="list-of-beers" class="row"></div>                
+            </div>
+
+            <!-- Pagination -->
+            <!-- <div class="btn-group page-button-block" role="group" aria-label="">
+                <button type="button" id='previous-button2' class='btn btn-default'> Previous Page </button>
+                <button type="button" id='next-button2' class='btn btn-primary'> More Beer </button>
+            </div> -->
+            <div class="load-more-div">
+                <button type="button" id="load-more-btn" class="btn btn-primary btn-block">More Beer</button>
+            </div>
+
+            <!-- Footer -->
+
         </div>
     </div>
 </div>
-    <!-- End of Header -->
-
-    <!-- Page Content -->
-<div id="page-container" class="container-fluid">
-     <div class="inner-container">
-        <div class="content-container">
-            <div class="search-bar">
-                <input type="search" class="search-text-box text-box" style="width: 500px" placeholder="Search Beers, Beer Styles, and Breweries ..."/>
-                
-                <input type="number" class="minabv-text-box text-box" style="width: 100px" min="0" max="20" step="0.5" placeholder="Min ABV" />
-                
-                <input type="number" class="maxabv-text-box text-box" style="width: 100px" min="0" max="20" step="0.5" placeholder="Max ABV"/>
-            </div>    
-            
-            <div id="list-of-beers" class="row"></div>
-            
-            <button id='previous-button' class='btn btn-warning' style='margin-right: 20px'> Previous Page </button>
-            
-            <button id='next-button' class='btn btn-info'> More Beer </button>
-        </div>
-    </div>
-</div>     
 
 
 
-<script src ="./main.js"></script>
+    <script src="./main.js"></script>
 
 </body>
+
 </html>
