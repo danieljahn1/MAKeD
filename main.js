@@ -1018,13 +1018,24 @@ function appendAdditionalItemsToPage(beerArr) {
         // var breweryContent = "<div id=brewery" + i + "></div>";
         // var brewery = "<h5 style='font-size: 120%'>" + beerArr[i].breweryId + "</h5>";
 
-
         $('#list-of-beers').append(beerCard);
         $('#beer-card' + i).append(beerContent);        
 
 
         $('.beer-content' + i).append (nameContent);
         $('#name' +i).append(name);
+
+        $(".beer-content" + i).append (imageContent);
+        $("#image" + i).append(image);
+
+       
+        $('.beer-content' + i).append (styleContent);
+        $('#style' +i).append(styleHeader);
+        $('#style' +i).append(style);
+       
+        $('.beer-content' + i).append (abvContent);
+        $('#abv' +i).append(abvHeader);
+        $('#abv' +i).append(abv);
     }
 }
 
@@ -1055,10 +1066,10 @@ function newBeerLoad () {
 }
 
 function loadNewBeer (event) {
-$.ajax({
-    url: beerApi,
-    type: "POST",
-    data: JSON.stringify(newBeerObj),
+    $.ajax({
+        url: beerApi,
+        type: "POST",
+        data: JSON.stringify(newBeerObj),
     
     // data: `{
     //     'breweryId': 0,
