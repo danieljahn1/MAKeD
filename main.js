@@ -532,7 +532,7 @@ var keyUpEvent = function () {
 }
 
 function appendAdditionalItemsToPage(beerArr) {
-    for(var i = currentPage*54 ; i < currentPage*54 +54; i++) {
+    for(var i = currentPage*54 ; i < currentPage*54 +54 && i < beerArr.length; i++) {
 
         if (beerArr[i].styleId == -1){
             beerArr[i].styleId = "Ale";

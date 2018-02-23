@@ -21,6 +21,10 @@ h1 {
     margin-left: 10px;
 }
 
+.abv-option {
+    border: 1px solid gray;
+}
+
 .search-text-box {
     width: 50% !important;
     margin: auto 10px;
