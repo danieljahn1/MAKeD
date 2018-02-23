@@ -515,8 +515,9 @@ var search = function() {
 
 var keyUpEvent = function () {
     if ($(".search-text-box").get(0).value.length > 2) {
-        if (globalTimeout != null) clearTimeout(globalTimeout);
+        if (globalTimeout != null) clearTimeout(globalTimeout); {
         globalTimeout = setTimeout(search, 750);
+        }
     } 
     else if ($(".search-text-box").get(0).value == "") {
         if (globalTimeout != null) clearTimeout(globalTimeout); {

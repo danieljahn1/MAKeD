@@ -62,9 +62,6 @@ h1 {
 	padding: 5px 20px 25px 20px;
 	border-radius: 10px;
 	background: #fff;
-	/* background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999); */
 }
 
 .close {
@@ -78,11 +75,7 @@ h1 {
 	width: 24px;
 	text-decoration: none;
 	font-weight: bold;
-	/* -webkit-border-radius: 12px;
-	-moz-border-radius: 12px; */
 	border-radius: 12px;
-	/* -moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000; */
 	box-shadow: 1px 1px 3px #000;
 }
 
