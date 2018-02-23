@@ -514,16 +514,11 @@ var search = function() {
 };
 
 var keyUpEvent = function () {
-    if ($(".search-text-box").get(0).value.length > 2) {
+    if ($(".search-text-box").get(0).value.length > 2 || ($(".search-text-box").get(0).value == "")) {
         if (globalTimeout != null) clearTimeout(globalTimeout); {
         globalTimeout = setTimeout(search, 750);
         }
     } 
-    else if ($(".search-text-box").get(0).value == "") {
-        if (globalTimeout != null) clearTimeout(globalTimeout); {
-        globalTimeout = setTimeout(search, 750);
-        }
-    }
 };
 
 $("#search-button").mouseup(search);
