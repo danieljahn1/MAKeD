@@ -1032,6 +1032,8 @@ function loadNewBeer (event) {
     })
     .done(function (response) {
         newPageLoad ()
+        $('#newBeerName')[0].value = ""
+        $('#newBeerAbv')[0].value = ""
     })
 };
 
