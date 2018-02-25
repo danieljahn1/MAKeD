@@ -471,6 +471,7 @@ function appendItemsToPage(beerArr) {
         $('#abv' +i).append(abv);
     }        
 };
+
 var fullLoad = function () {
     $.ajax({
         url: beerApi,
@@ -496,7 +497,7 @@ var search = function() {
             url: beerApi + "?name=" + searchText + "&minAbv=" + minAbv + "&maxAbv=" + maxAbv,
             method: 'GET',
         })
-        .done(function (response) {
+        .done(function(response) {
             beerArr = response;
             appendItemsToPage(beerArr);
         });
@@ -506,14 +507,14 @@ var search = function() {
             url: beerApi + "?minAbv=" + minAbv + "&maxAbv=" + maxAbv,
             method: 'GET',
         })
-        .done(function (response) {
+        .done(function(response) {
             beerArr = response;
             appendItemsToPage(beerArr);
         });
     }    
 };
 
-var keyUpEvent = function () {
+var keyUpEvent = function() {
     if ($(".search-text-box").get(0).value.length > 2 || ($(".search-text-box").get(0).value == "")) {
         if (globalTimeout != null) clearTimeout(globalTimeout); {
         globalTimeout = setTimeout(search, 750);
@@ -1008,21 +1009,21 @@ $('.submit-new-beer').mouseup(function(event) {
     loadNewBeer();   
 });
 
-function loadNewBeer (event) {
+function loadNewBeer(event) {
 
     var newBeerObj = {
         'breweryId': 0,
         'name': newBeerName,
         'catId': 1,
         'styleId': -1,
-        'abv' : newBeerAbv,
-        'ibu' : 0,
-        'srm' : 0,
-        'upc' : 0,
+        'abv': newBeerAbv,
+        'ibu': 0,
+        'srm': 0,
+        'upc': 0,
         'filepath': '',
-        'descript' : '',
-        'addUser' : 0,
-        'lastMod' : '2000-01-01T00:00:00'  
+        'descript': '',
+        'addUser': 0,
+        'lastMod': '2000-01-01T00:00:00'  
     };
     $.ajax({
         url: beerApi,
@@ -1030,37 +1031,37 @@ function loadNewBeer (event) {
         data: JSON.stringify(newBeerObj),
         contentType: "application/json",
     })
-    .done(function (response) {
-        newPageLoad ()
-        $('#newBeerName')[0].value = ""
-        $('#newBeerAbv')[0].value = ""
+    .done(function(response) {
+        newPageLoad();
+        $('#newBeerName')[0].value = "";
+        $('#newBeerAbv')[0].value = "";
     })
 };
 
 var beerId;
 
-function newPageLoad () {
+function newPageLoad() {
     $.ajax({
         url: beerApi + '?name=' + newBeerName,
         method: "GET"
     })
     .done(function (response) {
         beerArr = response;
-        appendItemsToPage(beerArr)
+        appendItemsToPage(beerArr);
         beerId = (beerArr[0].id);
-        $(".beer-content0").append("<button class='btn btn-danger btn-xs pull-right delete-button'>Delete</button>")
-        $(".delete-button").mouseup(deleteNewBeer)
+        $(".beer-content0").append("<button class='btn btn-danger btn-xs pull-right delete-button'>Delete</button>");
+        $(".delete-button").mouseup(deleteNewBeer);
     });
 };
 
-var deleteNewBeer = function () {
+var deleteNewBeer = function() {
     $.ajax({
         url:  beerApi + "/" + beerId,
         type: "DELETE"
     })
     .done(function (response) {
-        alert("Beer was Deleted")
-        fullLoad()
+        alert(newBeerName + " has been deleted.");
+        fullLoad();
     })
 };
 
