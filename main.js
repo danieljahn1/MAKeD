@@ -472,7 +472,7 @@ function appendItemsToPage(beerArr) {
     }        
 };
 
-var fullLoad = function () {
+var fullLoad = function() {
     $.ajax({
         url: beerApi,
         method: "GET"
@@ -1000,17 +1000,7 @@ $("#load-more-btn").mouseup(function(event) {
 var newBeerName = "";
 var newBeerAbv = "";
 
-$('.submit-new-beer').mouseup(function(event) {
-    newBeerName = $('#newBeerName')[0].value;
-    newBeerAbv = $('#newBeerAbv')[0].value;
-    // console.log(newBeerName);
-    // console.log(newBeerAbv);
-
-    loadNewBeer();   
-});
-
 function loadNewBeer(event) {
-
     var newBeerObj = {
         'breweryId': 0,
         'name': newBeerName,
@@ -1037,6 +1027,12 @@ function loadNewBeer(event) {
         $('#newBeerAbv')[0].value = "";
     })
 };
+
+$('.submit-new-beer').mouseup(function(event) {
+    newBeerName = $('#newBeerName')[0].value;
+    newBeerAbv = $('#newBeerAbv')[0].value;
+    loadNewBeer();   
+});
 
 var beerId;
 
