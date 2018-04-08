@@ -1,7 +1,7 @@
 # MAKeD: World of Beers
 
 ## Summary
-Some text some text. Some more text here.
+World of Beers is a simple web application where users can browse through beers. With the ability to filter by ABV and beer-name, the user can ensure that the beers they are browsing, meet their wants.
 
 ### appendItemsToPage(beerArr)
 Function that loops through an array and uses jQuery to create and append HTML elements to an existing div element.
