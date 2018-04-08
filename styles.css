@@ -99,7 +99,7 @@ h1 {
 .beer-card {
     height: 230px;
     border: 1px solid gray;
-    border-radius: 5%;
+	border-radius: 5%;
 }
 
 .name-content {
