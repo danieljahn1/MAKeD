@@ -1,3 +1,4 @@
+
 $('document').ready(function() {
 
 var beerApi = "http://redwoodbeerapi.azurewebsites.net/api/beers";
@@ -482,10 +483,14 @@ var fullLoad = function () {
     });
 };
 
+
+//first thing when user enters site
 fullLoad();
 
 var globalTimeout;
 
+
+//search functions with various GET methods based on users search parameters
 var search = function() {
     clearTimeout(globalTimeout);
     var searchText = $('.search-text-box').get(0).value;
@@ -513,6 +518,7 @@ var search = function() {
     }    
 };
 
+//search runs after about 1 second 
 var keyUpEvent = function () {
     if ($(".search-text-box").get(0).value.length > 2 || ($(".search-text-box").get(0).value == "")) {
         if (globalTimeout != null) clearTimeout(globalTimeout); {
@@ -525,6 +531,8 @@ $("#search-button").mouseup(search);
 
 $(".search-text-box").keyup(keyUpEvent);
 
+
+//same function as appendItemsToPage without emptying the list-of-beers
 function appendAdditionalItemsToPage(beerArr) {
     for(var i = currentPage*54 ; i < currentPage*54 +54 && i < beerArr.length; i++) {
 
@@ -991,6 +999,7 @@ function appendAdditionalItemsToPage(beerArr) {
     }
 };
 
+//button functions
 $("#load-more-btn").mouseup(function(event) {
     currentPage ++ ;
     appendAdditionalItemsToPage(beerArr);
@@ -1002,12 +1011,12 @@ var newBeerAbv = "";
 $('.submit-new-beer').mouseup(function(event) {
     newBeerName = $('#newBeerName')[0].value;
     newBeerAbv = $('#newBeerAbv')[0].value;
-    // console.log(newBeerName);
-    // console.log(newBeerAbv);
 
     loadNewBeer();   
 });
 
+
+//POST
 function loadNewBeer (event) {
 
     var newBeerObj = {
@@ -1039,6 +1048,8 @@ function loadNewBeer (event) {
 
 var beerId;
 
+
+//loads only the new beer onto page (GET)
 function newPageLoad () {
     $.ajax({
         url: beerApi + '?name=' + newBeerName,
@@ -1053,6 +1064,8 @@ function newPageLoad () {
     });
 };
 
+
+//function allowing the user to delete the beer they just added (DELETE)
 var deleteNewBeer = function () {
     $.ajax({
         url:  beerApi + "/" + beerId,
